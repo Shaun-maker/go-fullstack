@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 mongoose.connect('mongodb+srv://apaillaud:TLsHOTdjfaXSHZsf@go-fullstack.79gqop2.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/stuff', stuffRoutes);
 app.use('/api/auth', userRoutes);
 
