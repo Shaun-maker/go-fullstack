@@ -10,7 +10,7 @@ const stuffCtrl = require('../controllers/stuff');
 router.post('/', auth, multer, stuffCtrl.createThing);
 router.put('/:id', auth, multer, stuffCtrl.modifyThing);
 router.delete('/:id', auth, stuffCtrl.deleteThing);
-router.get('/', auth, stuffCtrl.getAllStuff);
+router.get('/', stuffCtrl.getAllStuff);
 router.get('/:id', auth, stuffCtrl.getOneThing);
 
 module.exports = router;
